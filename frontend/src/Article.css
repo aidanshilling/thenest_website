@@ -1,0 +1,17 @@
+.article-container {
+	display: flex;
+	flex-direction: row;
+	padding: 2vh;
+	background-color: whitesmoke;
+	border-radius: 1vh;
+	margin-top: 2vh;
+}
+
+.article-title {
+	margin-right: 5vh;
+}
+
+.article-text {
+	margin-top: 1vh;
+	vertical-align: middle;
+}

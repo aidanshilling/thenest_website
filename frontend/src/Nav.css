@@ -1,0 +1,31 @@
+.nav-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: whitesmoke;
+}
+
+.nav-container li {
+    float: left;
+}
+
+.nav-container a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-logo {
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-content {
+    margin: 4vh;
+}

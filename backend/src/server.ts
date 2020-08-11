@@ -30,7 +30,7 @@ const typeDefs = gql`
 
 const resolvers = {
 	User: {
-		async articles(user) {
+		async articles(user: String) {
 			try {
 				const userArticles = await admin
 					.firestore()
@@ -44,7 +44,7 @@ const resolvers = {
 		}
 	},
 	Articles: {
-		async user(article) {
+		async user(article: String) {
 			try {
 				const articleAuthor = await admin.firestore().doc(`users/${article.userId}`).get();
 				return articleAuthor.data();
@@ -58,7 +58,7 @@ const resolvers = {
 			const articles = await admin.firestore().collection('articles').get();
 			return articles.docs.map((article) => article.data());
 		},
-		async user(_, args) {
+		async user(_: any, args: any) {
 			try {
 				const userDoc = await admin.firestore().doc(`users/${args.id}`).get();
 				const user = userDoc.data();
