@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from './Nav';
-import './App.css';
+import Nav from './components/Nav';
+import './css/App.css';
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
