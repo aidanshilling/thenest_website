@@ -13,11 +13,11 @@ export default function Nav() {
 			<div className="nav-container">
 				<nav>
 					<ul>
-						<li>
+						<span>
 							<Link className="nav-logo" to="/">
-								Nest Sports
+								<img src="thenest.png" alt="Logo" />
 							</Link>
-						</li>
+						</span>
 						<li>
 							<Link className="nav-link" to="/our-takes">
 								Our Takes

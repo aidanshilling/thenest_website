@@ -1,31 +1,45 @@
 .nav-container ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: whitesmoke;
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: black;
+	box-shadow: 0px 2px 10px #888888;
+	list-style-position: outside;
 }
 
 .nav-container li {
-    float: left;
+	margin-top: .5em;
+	float: left;
 }
 
 .nav-container a {
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+	display: block;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 .nav-logo {
-    color: black;
-    font-weight: bold;
+	color: #32a852;
+	font-weight: bold;
+}
+
+.nav-logo img {
+	width: 3em;
+	margin: 0;
 }
 
 .nav-link {
-    color: black;
+	color: white;
 }
 
 .nav-content {
-    margin: 4vh;
+	margin: 4vh;
+	display: flex;
+	max-width: 85em;
+	margin: auto;
+	align-items: center;
+	flex-direction: column;
 }

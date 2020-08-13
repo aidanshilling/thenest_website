@@ -1,6 +1,7 @@
 import React from 'react';
 import Article from '../components/Article';
 import { useQuery, gql } from '@apollo/client';
+import '../css/OurTakes.css';
 
 const ARTICLES = gql`
 	query Articles {
@@ -28,7 +29,13 @@ export default function OurTakes() {
 			) : (
 				data.articles.map((article) => {
 					return (
-						<Article key={article.id} title={article.name} author={article.user.name} text={article.text} />
+						<Article
+							key={article.id}
+							time={'Just now'}
+							title={article.name}
+							author={article.user.name}
+							text={article.text}
+						/>
 					);
 				})
 			);
@@ -37,5 +44,5 @@ export default function OurTakes() {
 		}
 	};
 
-	return <div>{getArticles()}</div>;
+	return <div className="takes-container">{getArticles()}</div>;
 }

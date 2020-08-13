@@ -1,8 +1,8 @@
 .App {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .App > div {
-  margin: 3vh;
+	margin: 3vh;
 }

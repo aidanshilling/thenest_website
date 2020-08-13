@@ -67,6 +67,9 @@ const resolvers = {
 				throw new ApolloError(error);
 			}
 		}
+	},
+	Mutation: {
+		createArticle: async () => {}
 	}
 };
 

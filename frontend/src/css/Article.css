@@ -1,17 +1,40 @@
 .article-container {
 	display: flex;
-	flex-direction: row;
-	padding: 2vh;
-	background-color: whitesmoke;
+	flex-direction: column;
+	padding: 1em;
+	background-color: white;
 	border-radius: 1vh;
 	margin-top: 2vh;
+	max-width: 50em;
+	box-shadow: 0px 2px 10px #f1f1f1;
 }
 
-.article-title {
-	margin-right: 5vh;
+.article-title h1,
+h4 {
+	margin: 0;
+	padding: 0;
 }
 
-.article-text {
+.article-title h4 {
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+.article-text p {
+	margin: 0;
+	padding: 0;
 	margin-top: 1vh;
 	vertical-align: middle;
+}
+
+#article-link {
+	color: blue;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+
+.article-time {
+	font-weight: 400;
+	font-size: small;
 }
