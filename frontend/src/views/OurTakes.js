@@ -5,13 +5,11 @@ import '../css/OurTakes.css';
 
 const ARTICLES = gql`
 	query Articles {
-		articles {
+		articles(category: "take") {
 			name
 			id
 			text
-			user {
-				name
-			}
+			author
 		}
 	}
 `;
@@ -33,7 +31,7 @@ export default function OurTakes() {
 							key={article.id}
 							time={'Just now'}
 							title={article.name}
-							author={article.user.name}
+							author={article.author}
 							text={article.text}
 						/>
 					);

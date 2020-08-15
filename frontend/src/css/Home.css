@@ -2,11 +2,6 @@
 	margin-top: 1em;
 	padding: 1em;
 	background-color: whitesmoke;
-	min-width: 50em;
-	max-width: 50em;
-
-	display: flex;
-	flex-direction: column;
 }
 
 .home-category {

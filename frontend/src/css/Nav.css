@@ -1,17 +1,30 @@
-.nav-container ul {
+.nav-border {
+	background-color: black;
+	box-shadow: 0px 2px 10px #888888;
+	margin: 0;
+	padding: 0;
+}
+
+#navbar {
+	margin: 4vh;
 	display: flex;
-	list-style-type: none;
+	width: 50em;
+	margin: auto;
+	align-items: left;
+	flex-direction: column;
+}
+
+.nav-row {
+	display: flex;
+	flex-direction: row;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: black;
-	box-shadow: 0px 2px 10px #888888;
-	list-style-position: outside;
+	align-items: center;
 }
 
-.nav-container li {
-	margin-top: .5em;
-	float: left;
+.nav-item {
+	margin: .2em;
 }
 
 .nav-container a {
@@ -38,7 +51,7 @@
 .nav-content {
 	margin: 4vh;
 	display: flex;
-	max-width: 85em;
+	width: 50em;
 	margin: auto;
 	align-items: center;
 	flex-direction: column;

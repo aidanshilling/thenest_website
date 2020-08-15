@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Home.css';
 import OurTakes from './OurTakes';
+import NestBets from './NestBets';
 
 export default function Home() {
 	return (
@@ -11,6 +12,7 @@ export default function Home() {
 			</div>
 			<div className="home-bets home-category">
 				<h4>Our Bets</h4>
+				<NestBets />
 			</div>
 			<div className="home-podcasts home-category">
 				<h4>Latest Podcast</h4>

@@ -11,35 +11,37 @@ export default function Nav() {
 	return (
 		<Router>
 			<div className="nav-container">
-				<nav>
-					<ul>
-						<span>
-							<Link className="nav-logo" to="/">
-								<img src="thenest.png" alt="Logo" />
-							</Link>
-						</span>
-						<li>
-							<Link className="nav-link" to="/our-takes">
-								Our Takes
-							</Link>
-						</li>
-						<li>
-							<Link className="nav-link" to="/nest-bets">
-								Nest Bets
-							</Link>
-						</li>
-						<li>
-							<Link className="nav-link" to="/podcasts">
-								Podcasts
-							</Link>
-						</li>
-						<li>
-							<Link className="nav-link" to="/editor">
-								Editor
-							</Link>
-						</li>
-					</ul>
-				</nav>
+				<div className="nav-border">
+					<nav id="navbar">
+						<div className="nav-row">
+							<div className="nav-item">
+								<Link className="nav-logo" to="/">
+									<img src="thenest.png" alt="Logo" />
+								</Link>
+							</div>
+							<div className="nav-item">
+								<Link className="nav-link" to="/our-takes">
+									Our Takes
+								</Link>
+							</div>
+							<div className="nav-item">
+								<Link className="nav-link" to="/nest-bets">
+									Nest Bets
+								</Link>
+							</div>
+							<div className="nav-item">
+								<Link className="nav-link" to="/podcasts">
+									Podcasts
+								</Link>
+							</div>
+							<div className="nav-item">
+								<Link className="nav-link" to="/editor">
+									Editor
+								</Link>
+							</div>
+						</div>
+					</nav>
+				</div>
 				<main className="nav-content">
 					<Switch>
 						<Route exact path="/">
