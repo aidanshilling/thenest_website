@@ -33,12 +33,13 @@ export default function OurTakes() {
 							title={article.name}
 							author={article.author}
 							text={article.text}
+							id={article.id}
 						/>
 					);
 				})
 			);
 		} else {
-			return <div>No awards...</div>;
+			return <div>No articles...</div>;
 		}
 	};
 

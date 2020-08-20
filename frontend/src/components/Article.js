@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/Article.css';
+import { Link } from 'react-router-dom';
 
 export default function Article(props) {
 	return (
@@ -13,7 +14,9 @@ export default function Article(props) {
 			</div>
 			<div className="article-text" dangerouslySetInnerHTML={{ __html: props.text }} />
 			<div>
-				<a id="article-link">Read more...</a>
+				<Link to={`${props.id}`}>
+					<a id="article-link">Read more...</a>
+				</Link>
 			</div>
 		</div>
 	);

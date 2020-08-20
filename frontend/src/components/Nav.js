@@ -6,8 +6,46 @@ import OurTakes from '../views/OurTakes';
 import Podcasts from '../views/Podcasts';
 import '../css/Nav.css';
 import TextEditor from './TextEditor';
+import { useQuery, gql } from '@apollo/client';
+import ArticleView from './ArticleView';
+
+const ARTICLES = gql`
+	query Articles {
+		articles {
+			name
+			id
+			text
+			author
+			category
+		}
+	}
+`;
 
 export default function Nav() {
+	const { loading, error, data } = useQuery(ARTICLES);
+
+	if (loading) return <p>Loading...</p>;
+	if (error) return <p>Error :(</p>;
+
+	const getArticles = () => {
+		if (data.articles.length > 0) {
+			return loading ? (
+				<div>Loading data...</div>
+			) : (
+				data.articles.map((article) => {
+					console.log(article.id, article.category);
+					return (
+						<Route key={article.id} path={`/${article.id}`}>
+							<ArticleView title={article.name} text={article.text} />
+						</Route>
+					);
+				})
+			);
+		} else {
+			return <div>No articles...</div>;
+		}
+	};
+
 	return (
 		<Router>
 			<div className="nav-container">
@@ -59,6 +97,7 @@ export default function Nav() {
 						<Route path="/editor">
 							<TextEditor />
 						</Route>
+						{getArticles()}
 					</Switch>
 				</main>
 			</div>

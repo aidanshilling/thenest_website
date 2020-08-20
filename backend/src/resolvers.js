@@ -3,7 +3,7 @@ import { Article } from './models/Article';
 export const resolvers = {
 	Query: {
 		hello: () => 'hello',
-		articles: async (_, { category }) => Article.find({ category: category })
+		articles: async (_, { category }) => Article.find(category ? { category: category } : null)
 	},
 	Mutation: {
 		createArticle: async (_, { name, text, author, category }) => {

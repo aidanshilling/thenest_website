@@ -33,6 +33,7 @@ export default function NestBets() {
 							title={article.name}
 							author={article.author}
 							text={article.text}
+							id={article.id}
 						/>
 					);
 				})
