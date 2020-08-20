@@ -3,6 +3,8 @@ import '../css/Article.css';
 import { Link } from 'react-router-dom';
 
 export default function Article(props) {
+	const display_text = props.text.substring(0, 250) + '...';
+
 	return (
 		<div className="article-container">
 			<div className="article-title">
@@ -12,7 +14,7 @@ export default function Article(props) {
 					<span className="article-time"> - {props.time}</span>
 				</h4>
 			</div>
-			<div className="article-text" dangerouslySetInnerHTML={{ __html: props.text }} />
+			<div className="article-text" dangerouslySetInnerHTML={{ __html: display_text }} />
 			<div>
 				<Link to={`${props.id}`}>
 					<a id="article-link">Read more...</a>
