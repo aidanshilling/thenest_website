@@ -12,11 +12,13 @@ export default class TextEditor extends Component {
 			text: '',
 			name: '',
 			author: '',
-			category: ''
+			category: '',
+			image: ''
 		};
 		this.updateText = this.updateText.bind(this);
 		this.updateName = this.updateName.bind(this);
 		this.updateAuthor = this.updateAuthor.bind(this);
+		this.updateImage = this.updateImage.bind(this);
 		this.updateCategory = this.updateCategory.bind(this);
 	}
 
@@ -30,6 +32,10 @@ export default class TextEditor extends Component {
 
 	updateAuthor(e) {
 		this.setState({ author: e.target.value });
+	}
+
+	updateImage(e) {
+		this.setState({ image: e.target.value });
 	}
 
 	updateCategory(e) {
@@ -47,6 +53,7 @@ export default class TextEditor extends Component {
 						value={this.state.author}
 						onChange={this.updateAuthor}
 					/>
+					<input type="text" placeholder="Image URL" value={this.state.image} onChange={this.updateImage} />
 					<label for="take">Our Takes</label>
 					<input id="take" name="cat" type="radio" value="take" onChange={this.updateCategory} />
 					<label for="bet">Nest Bets</label>
@@ -58,6 +65,7 @@ export default class TextEditor extends Component {
 						author={this.state.author}
 						text={this.state.text}
 						category={this.state.category}
+						imageUrl={this.state.image}
 					/>
 				</form>
 			</div>

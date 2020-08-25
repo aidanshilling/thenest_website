@@ -2,13 +2,14 @@ import React from 'react';
 import { gql, useMutation } from '@apollo/client';
 
 const CREATE_ARTICLE = gql`
-	mutation CreateArticle($name: String!, $text: String!, $author: String!, $category: String!) {
-		createArticle(name: $name, text: $text, author: $author, category: $category) {
+	mutation CreateArticle($name: String!, $text: String!, $author: String!, $imageUrl: String!, $category: String!) {
+		createArticle(name: $name, text: $text, author: $author, imageUrl: $imageUrl, category: $category) {
 			name
 			text
 			author
 			category
 			id
+			imageUrl
 		}
 	}
 `;
@@ -25,6 +26,7 @@ export default function CreateArticle(props) {
 							name: props.name,
 							text: props.text,
 							author: props.author,
+							imageUrl: props.imageUrl,
 							category: props.category
 						}
 					});

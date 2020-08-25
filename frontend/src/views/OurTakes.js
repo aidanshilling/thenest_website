@@ -10,11 +10,12 @@ const ARTICLES = gql`
 			id
 			text
 			author
+			imageUrl
 		}
 	}
 `;
 
-export default function OurTakes() {
+export default function OurTakes(props) {
 	const { loading, error, data } = useQuery(ARTICLES);
 
 	if (loading) return <p>Loading...</p>;
@@ -34,6 +35,7 @@ export default function OurTakes() {
 							author={article.author}
 							text={article.text}
 							id={article.id}
+							url={article.imageUrl}
 						/>
 					);
 				})

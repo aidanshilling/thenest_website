@@ -1,0 +1,13 @@
+.av-image {
+	border-radius: 1vh;
+	max-width: 50em;
+	box-shadow: 0px 2px 10px #888888;
+}
+
+.av-title {
+	margin-bottom: .3em;
+}
+
+.av-caption {
+	margin-bottom: 2em;
+}

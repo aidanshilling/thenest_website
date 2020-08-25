@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, useLocation } from 'react-router-dom';
 import Home from '../views/Home';
 import NestBets from '../views/NestBets';
 import OurTakes from '../views/OurTakes';
@@ -17,6 +17,7 @@ const ARTICLES = gql`
 			text
 			author
 			category
+			imageUrl
 		}
 	}
 `;
@@ -36,7 +37,13 @@ export default function Nav() {
 					console.log(article.id, article.category);
 					return (
 						<Route key={article.id} path={`/${article.id}`}>
-							<ArticleView title={article.name} text={article.text} />
+							<ArticleView
+								title={article.name}
+								author={article.author}
+								time="Just now"
+								url={article.imageUrl}
+								text={article.text}
+							/>
 						</Route>
 					);
 				})
@@ -80,6 +87,7 @@ export default function Nav() {
 						</div>
 					</nav>
 				</div>
+
 				<main className="nav-content">
 					<Switch>
 						<Route exact path="/">

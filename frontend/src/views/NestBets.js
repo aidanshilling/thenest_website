@@ -10,6 +10,7 @@ const ARTICLES = gql`
 			id
 			text
 			author
+			imageUrl
 		}
 	}
 `;
@@ -34,12 +35,13 @@ export default function NestBets() {
 							author={article.author}
 							text={article.text}
 							id={article.id}
+							url={article.imageUrl}
 						/>
 					);
 				})
 			);
 		} else {
-			return <div>No awards...</div>;
+			return <div>No articles...</div>;
 		}
 	};
 

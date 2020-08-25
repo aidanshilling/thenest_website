@@ -13,11 +13,12 @@ export default function Article(props) {
 					{props.author}
 					<span className="article-time"> - {props.time}</span>
 				</h4>
+				<img className="article-image" src={props.url} alt={props.alt} />
 			</div>
 			<div className="article-text" dangerouslySetInnerHTML={{ __html: display_text }} />
 			<div>
 				<Link to={`${props.id}`}>
-					<a id="article-link">Read more...</a>
+					<a id="article-link">Read more</a>
 				</Link>
 			</div>
 		</div>

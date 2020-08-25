@@ -6,8 +6,8 @@ export const resolvers = {
 		articles: async (_, { category }) => Article.find(category ? { category: category } : null)
 	},
 	Mutation: {
-		createArticle: async (_, { name, text, author, category }) => {
-			const article = new Article({ name, text, author, category });
+		createArticle: async (_, { name, text, author, category, imageUrl }) => {
+			const article = new Article({ name, text, author, category, imageUrl });
 			article.save().then(() => console.log('Article created...'));
 			return article;
 		}
