@@ -1,64 +1,71 @@
-// import React, { Component } from 'react';
-// import { AUTH_TOKEN } from '../constants';
-// import { Mutation } from 'react-apollo';
-// import gql from 'graphql-tag';
+import React from 'react';
+import { AUTH_TOKEN } from '../constants';
+import { useLazyQuery, gql } from '@apollo/client';
+import { useState } from 'react';
 
-// const LOGIN_MUTATION = gql`
-// 	mutation LoginMutation($email: String!, $password: String!) {
-// 		login(email: $email, password: $password) {
-// 			token
-// 		}
-// 	}
-// `;
+const LOGIN = gql`
+	query Login($username: String!, $password: String!) {
+		login(username: $username, password: $password) {
+			token
+		}
+	}
+`;
 
-// class Login extends Component {
-// 	state = {
-// 		email: '',
-// 		password: '',
-// 		name: ''
-// 	};
+function Login(props) {
+	const [ username, setUsername ] = useState('');
+	const [ password, setPassword ] = useState('');
 
-// 	render() {
-// 		const { login, email, password, name } = this.state;
-// 		return (
-// 			<div>
-// 				<h4>Login</h4>
-// 				<div>
-// 					<input
-// 						value={email}
-// 						onChange={(e) => this.setState({ email: e.target.value })}
-// 						type="text"
-// 						placeholder="email"
-// 					/>
-// 					<input
-// 						value={password}
-// 						onChange={(e) => this.setState({ password: e.target.value })}
-// 						type="password"
-// 						placeholder="password"
-// 					/>
-// 				</div>
-// 				<div>
-// 					<Mutation
-// 						mutation={LOGIN_MUTATION}
-// 						variables={{ email, password }}
-// 						onComplete={(data) => this._confirm(data)}
-// 					>
-// 						<div onClick={mutation}>Login</div>
-// 					</Mutation>
-// 				</div>
-// 			</div>
-// 		);
-// 	}
+	const _confirm = async () => {
+		const token = data.login.token;
+		console.log(token);
+		_saveUserData(token);
+	};
 
-// 	_confirm = async () => {
-// 		const { token } = data.login;
-// 		this._saveUserData(token);
-// 		this.props.history.push(`/`);
-// 	};
+	const _saveUserData = (token) => {
+		localStorage.setItem(AUTH_TOKEN, token);
+	};
 
-// 	_saveUserData = (token) => {
-// 		localStorage.setItem(AUTH_TOKEN, token);
-// 	};
-// }
+	const [ login, { loading, error, data } ] = useLazyQuery(LOGIN);
 
-// export default Login;
+	if (loading) return <p>Loading...</p>;
+
+	if (data && data.login) {
+		_confirm();
+	}
+
+	return (
+		<div>
+			<h4>Login</h4>
+			<div>
+				<input
+					value={username}
+					onChange={(e) => setUsername(e.target.value)}
+					type="text"
+					placeholder="username"
+				/>
+				<input
+					value={password}
+					onChange={(e) => setPassword(e.target.value)}
+					type="password"
+					placeholder="password"
+				/>
+			</div>
+			<div>
+				<button
+					onClick={() => {
+						login({
+							variables: {
+								username: username,
+								password: password
+							}
+						});
+					}}
+				>
+					Login
+				</button>
+			</div>
+		</div>
+	);
+}
+
+export default Login;

@@ -8,7 +8,7 @@ const CREATE_ARTICLE = gql`
 			text
 			author
 			category
-			id
+			_id
 			imageUrl
 		}
 	}

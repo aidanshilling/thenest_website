@@ -7,7 +7,7 @@ const ARTICLES = gql`
 	query Articles {
 		articles(category: "take") {
 			name
-			id
+			_id
 			text
 			author
 			imageUrl
@@ -29,12 +29,12 @@ export default function OurTakes(props) {
 				data.articles.map((article) => {
 					return (
 						<Article
-							key={article.id}
+							key={article._id}
 							time={'Just now'}
 							title={article.name}
 							author={article.author}
 							text={article.text}
-							id={article.id}
+							id={article._id}
 							url={article.imageUrl}
 						/>
 					);

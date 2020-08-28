@@ -45,29 +45,29 @@ export default class TextEditor extends Component {
 	render() {
 		return (
 			<div className="edit-container">
-				<form>
-					<input type="text" placeholder="Article title" value={this.state.name} onChange={this.updateName} />
-					<input
-						type="text"
-						placeholder="Article author"
-						value={this.state.author}
-						onChange={this.updateAuthor}
-					/>
-					<input type="text" placeholder="Image URL" value={this.state.image} onChange={this.updateImage} />
-					<label for="take">Our Takes</label>
-					<input id="take" name="cat" type="radio" value="take" onChange={this.updateCategory} />
-					<label for="bet">Nest Bets</label>
-					<input id="bet" name="cat" type="radio" value="bet" onChange={this.updateCategory} />
-					<ReactQuill value={this.state.text} onChange={this.updateText} />
-					<div dangerouslySetInnerHTML={{ __html: this.state.text }} />
-					<CreateArticle
-						name={this.state.name}
-						author={this.state.author}
-						text={this.state.text}
-						category={this.state.category}
-						imageUrl={this.state.image}
-					/>
-				</form>
+				{/* <form> */}
+				<input type="text" placeholder="Article title" value={this.state.name} onChange={this.updateName} />
+				<input
+					type="text"
+					placeholder="Article author"
+					value={this.state.author}
+					onChange={this.updateAuthor}
+				/>
+				<input type="text" placeholder="Image URL" value={this.state.image} onChange={this.updateImage} />
+				<label for="take">Our Takes</label>
+				<input id="take" name="cat" type="radio" value="take" onChange={this.updateCategory} />
+				<label for="bet">Nest Bets</label>
+				<input id="bet" name="cat" type="radio" value="bet" onChange={this.updateCategory} />
+				<ReactQuill value={this.state.text} onChange={this.updateText} />
+				<div dangerouslySetInnerHTML={{ __html: this.state.text }} />
+				<CreateArticle
+					name={this.state.name}
+					author={this.state.author}
+					text={this.state.text}
+					category={this.state.category}
+					imageUrl={this.state.image}
+				/>
+				{/* </form> */}
 			</div>
 		);
 	}

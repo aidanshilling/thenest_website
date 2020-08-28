@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Home from '../views/Home';
 import NestBets from '../views/NestBets';
 import OurTakes from '../views/OurTakes';
@@ -8,12 +8,13 @@ import '../css/Nav.css';
 import TextEditor from './TextEditor';
 import { useQuery, gql } from '@apollo/client';
 import ArticleView from './ArticleView';
+import Login from './Login';
 
 const ARTICLES = gql`
 	query Articles {
 		articles {
 			name
-			id
+			_id
 			text
 			author
 			category
@@ -22,7 +23,7 @@ const ARTICLES = gql`
 	}
 `;
 
-export default function Nav() {
+export default function Nav(props) {
 	const { loading, error, data } = useQuery(ARTICLES);
 
 	if (loading) return <p>Loading...</p>;
@@ -34,9 +35,9 @@ export default function Nav() {
 				<div>Loading data...</div>
 			) : (
 				data.articles.map((article) => {
-					console.log(article.id, article.category);
+					console.log(article._id, article.category);
 					return (
-						<Route key={article.id} path={`/${article.id}`}>
+						<Route key={article._id} path={`/${article._id}`}>
 							<ArticleView
 								title={article.name}
 								author={article.author}
@@ -79,11 +80,20 @@ export default function Nav() {
 									Podcasts
 								</Link>
 							</div>
-							<div className="nav-item">
-								<Link className="nav-link" to="/editor">
-									Editor
-								</Link>
-							</div>
+							{props.loginState && (
+								<div className="nav-item">
+									<Link className="nav-link" to="/editor">
+										Editor
+									</Link>
+								</div>
+							)}
+							{!props.loginState && (
+								<div className="nav-item">
+									<Link className="nav-link" to="/login">
+										Login
+									</Link>
+								</div>
+							)}
 						</div>
 					</nav>
 				</div>
@@ -102,9 +112,14 @@ export default function Nav() {
 						<Route path="/podcasts">
 							<Podcasts />
 						</Route>
-						<Route path="/editor">
-							<TextEditor />
-						</Route>
+						{!props.loginState && (
+							<Route path="/login">{props.loginState ? <Redirect to="/" /> : <Login />}</Route>
+						)}
+						{props.loginState && (
+							<Route path="/editor">
+								<TextEditor />
+							</Route>
+						)}
 						{getArticles()}
 					</Switch>
 				</main>
