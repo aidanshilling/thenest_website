@@ -45,5 +45,10 @@ export default function OurTakes(props) {
 		}
 	};
 
-	return <div className="takes-container">{getArticles()}</div>;
+	return (
+		<div className="takes-container">
+			<h1>Our Takes</h1>
+			{getArticles()}
+		</div>
+	);
 }

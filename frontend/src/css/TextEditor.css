@@ -1,1 +1,21 @@
+.edit-container {
+	display: flex;
+	flex-direction: column;
+	width: 50em;
+}
 
+.edit-input {
+	margin-top: 1em;
+	background-color: white;
+	border: none;
+	border-radius: 1vh;
+	padding: 1em;
+}
+
+.edit-radio {
+	margin: 1em;
+}
+
+.edit-title {
+	margin-top: 1em;
+}

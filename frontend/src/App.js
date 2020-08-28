@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from './components/Nav';
 import './css/App.css';
-import Login from './components/Login';
 import { useState } from 'react';
 import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
@@ -18,7 +17,7 @@ function App() {
 		let client;
 
 		const httpLink = createHttpLink({
-			uri: 'http://localhost:4000/graphql'
+			uri: 'http://192.168.1.12:4000/graphql'
 		});
 
 		let authLink = setContext((_, { headers }) => {

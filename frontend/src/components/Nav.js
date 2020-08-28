@@ -75,22 +75,15 @@ export default function Nav(props) {
 									Nest Bets
 								</Link>
 							</div>
-							<div className="nav-item">
+							{/* <div className="nav-item">
 								<Link className="nav-link" to="/podcasts">
 									Podcasts
 								</Link>
-							</div>
+							</div> */}
 							{props.loginState && (
 								<div className="nav-item">
 									<Link className="nav-link" to="/editor">
 										Editor
-									</Link>
-								</div>
-							)}
-							{!props.loginState && (
-								<div className="nav-item">
-									<Link className="nav-link" to="/login">
-										Login
 									</Link>
 								</div>
 							)}
@@ -109,9 +102,9 @@ export default function Nav(props) {
 						<Route path="/nest-bets">
 							<NestBets />
 						</Route>
-						<Route path="/podcasts">
+						{/* <Route path="/podcasts">
 							<Podcasts />
-						</Route>
+						</Route> */}
 						{!props.loginState && (
 							<Route path="/login">{props.loginState ? <Redirect to="/" /> : <Login />}</Route>
 						)}

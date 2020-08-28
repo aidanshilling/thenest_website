@@ -45,5 +45,10 @@ export default function NestBets() {
 		}
 	};
 
-	return <div className="takes-container">{getArticles()}</div>;
+	return (
+		<div className="takes-container">
+			<h1>Nest Bets</h1>
+			{getArticles()}
+		</div>
+	);
 }

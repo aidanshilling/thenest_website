@@ -1,3 +1,25 @@
+@media only screen and (max-width: 890px) {
+	.nav-content {
+		width: auto;
+		padding: 1em;
+	}
+}
+
+@media only screen and (min-width: 890px) {
+	.nav-content {
+		width: 50em;
+	}
+}
+
+.nav-content {
+	margin: 4vh;
+	padding-top: 4em;
+	display: flex;
+	margin: auto;
+	align-items: center;
+	flex-direction: column;
+}
+
 .nav-border {
 	background-color: black;
 	box-shadow: 0px 2px 10px black;
@@ -64,14 +86,4 @@
 .nav-link:hover {
 	border-radius: 2vh;
 	background-color: #32a852;
-}
-
-.nav-content {
-	margin: 4vh;
-	padding-top: 4em;
-	display: flex;
-	width: 50em;
-	margin: auto;
-	align-items: center;
-	flex-direction: column;
 }

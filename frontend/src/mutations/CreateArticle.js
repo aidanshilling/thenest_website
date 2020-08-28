@@ -1,5 +1,6 @@
 import React from 'react';
 import { gql, useMutation } from '@apollo/client';
+import '../css/CreateArticle.css';
 
 const CREATE_ARTICLE = gql`
 	mutation CreateArticle($name: String!, $text: String!, $author: String!, $imageUrl: String!, $category: String!) {
@@ -20,6 +21,7 @@ export default function CreateArticle(props) {
 	return (
 		<div>
 			<button
+				className="ca-button"
 				onClick={() => {
 					createArticle({
 						variables: {

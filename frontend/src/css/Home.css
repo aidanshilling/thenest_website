@@ -11,3 +11,30 @@
 	padding: 1em;
 	box-shadow: 0px 2px 10px #f1f1f1;
 }
+
+.home-podcasts {
+	display: flex;
+	flex-direction: row;
+	vertical-align: middle;
+	align-content: center;
+	align-items: center;
+}
+
+.home-link {
+	background-color: blue;
+	color: white;
+	border-radius: .5em;
+	width: 10em;
+	transition-duration: .2s;
+}
+
+.home-link:hover {
+	border-radius: 1.5vh;
+	background-color: blue;
+	color: white;
+	box-shadow: 0px 0px 5px blue;
+}
+
+.home-podimg {
+	max-width: 5em;
+}

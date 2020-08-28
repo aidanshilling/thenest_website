@@ -14,9 +14,19 @@ export default function Home() {
 				<h4>Our Bets</h4>
 				<NestBets />
 			</div>
-			<div className="home-podcasts home-category">
+			<div className="home-category">
 				<h4>Latest Podcast</h4>
-				<img src="podcast.jpg" alt="podcast img" />
+				<div className="home-podcasts">
+					<img className="home-podimg" src="podcast.jpg" alt="podcast img" />
+					<span>
+						<a
+							className="home-link"
+							href="https://podcasts.apple.com/us/podcast/the-rattlin-boys/id1522377645"
+						>
+							Listen on Apple Music
+						</a>
+					</span>
+				</div>
 			</div>
 		</div>
 	);

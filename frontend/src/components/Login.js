@@ -59,6 +59,9 @@ function Login(props) {
 								password: password
 							}
 						});
+						if (data) {
+							window.location.reload(false);
+						}
 					}}
 				>
 					Login

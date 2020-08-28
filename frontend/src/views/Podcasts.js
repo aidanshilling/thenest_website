@@ -6,13 +6,8 @@ import '../css/Podcasts.css';
 export default function Podcasts() {
 	return (
 		<div>
-			<iframe
-				className="pod-frame"
-				src="https://open.spotify.com/embed/playlist/37i9dQZF1DX9NcHK1vd9rO"
-				frameborder="0"
-				allowtransparency="true"
-				allow="encrypted-media"
-			/>
+			<button id="apple-music-authorize">login to apple music</button>
+			<button id="apple-music-unauthorize">logout</button>
 		</div>
 	);
 }
